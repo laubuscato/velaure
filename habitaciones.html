@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Habitaciones y suites de Velaure. Busque por fechas y reserve su estancia frente al mar.">
+    <title>Habitaciones y suites · Velaure, Costa Brava</title>
+    <link rel="icon" href="./img/favicon.svg" type="image/svg+xml">
+    <!-- Datos que se ven al compartir el enlace en redes sociales -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Habitaciones y suites · Velaure, Costa Brava">
+    <meta property="og:description" content="Habitaciones y suites de Velaure. Busque por fechas y reserve su estancia frente al mar.">
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+    <!-- Cabecera y menú (igual en todas las páginas) -->
+    <header>
+        <a href="index.html" class="logo">VELAURE</a>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="habitaciones.html">Habitaciones</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="mi-reserva.html">Mi reserva</a></li>
+            </ul>
+        </nav>
+
+        <a href="habitaciones.html" class="boton-reservar">Reservar</a>
+    </header>
+
+    <main>
+        <!-- Título y buscador -->
+        <section class="seccion cabecera-pagina">
+            <p class="etiqueta">Habitaciones y suites</p>
+
+            <h1>Cinco refugios frente al mar</h1>
+
+            <form id="buscador" class="buscador">
+                <label>
+                    Llegada
+                    <input type="date" id="fecha-entrada">
+                </label>
+
+                <label>
+                    Salida
+                    <input type="date" id="fecha-salida">
+                </label>
+
+                <label>
+                    Adultos
+                    <select id="adultos">
+                        <option value="1">1 adulto</option>
+                        <option value="2" selected>2 adultos</option>
+                    </select>
+                </label>
+
+                <label>
+                    Habitación
+                    <select id="habitacion">
+                        <option value="todas">Todas las habitaciones</option>
+                        <!-- El resto de opciones las crea JavaScript -->
+                    </select>
+                </label>
+            </form>
+
+            <p id="texto-noches" class="texto-noches" hidden></p>
+
+            <p class="aviso">Hotel solo para adultos (a partir de 18 años). Los precios cambian según la temporada: baja (de noviembre a marzo), media (abril, mayo y octubre) y alta (de junio a septiembre).</p>
+        </section>
+
+        <!-- Fichas de las habitaciones -->
+        <section class="seccion">
+            <div class="tarjetas" id="lista-habitaciones">
+                <!-- Aquí JavaScript creará las fichas -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página (igual en todas las páginas) -->
+    <footer>
+        <div class="pie-columnas">
+            <div>
+                <p class="logo">VELAURE</p>
+                <p>Camí de la Cala Narel, s/n<br>Narel de Mar, Costa Brava</p>
+            </div>
+
+            <div>
+                <p class="pie-titulo">El hotel</p>
+                <ul>
+                    <li><a href="habitaciones.html">Habitaciones</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="mi-reserva.html">Mi reserva</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="pie-titulo">Recepción</p>
+                <p>Abierta las 24 horas<br>972 000 000<br>recepcion@velaure.example</p>
+            </div>
+        </div>
+
+        <p class="pie-nota">Marca ficticia creada con fines educativos · Proyecto de portfolio · Laura Buscató Lopez · <a href="https://github.com/laubuscato">GitHub</a></p>
+    </footer>
+
+    <!-- JavaScript de esta página -->
+    <script src="./js/datos.js"></script>
+    <script src="./js/habitaciones.js"></script>
+</body>
+</html>

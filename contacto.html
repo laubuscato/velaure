@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contacte con Velaure: formulario de consulta, dirección, recepción y cómo llegar.">
+    <title>Contacto · Velaure, Costa Brava</title>
+    <link rel="icon" href="./img/favicon.svg" type="image/svg+xml">
+    <!-- Datos que se ven al compartir el enlace en redes sociales -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contacto · Velaure, Costa Brava">
+    <meta property="og:description" content="Contacte con Velaure: formulario de consulta, dirección, recepción y cómo llegar.">
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+    <!-- Cabecera y menú (igual en todas las páginas) -->
+    <header>
+        <a href="index.html" class="logo">VELAURE</a>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="habitaciones.html">Habitaciones</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="mi-reserva.html">Mi reserva</a></li>
+            </ul>
+        </nav>
+
+        <a href="habitaciones.html" class="boton-reservar">Reservar</a>
+    </header>
+
+    <main class="seccion">
+        <p class="etiqueta">Contacto</p>
+
+        <h1>Estamos a su disposición</h1>
+
+        <div class="contacto-layout">
+
+            <!-- Columna izquierda: formulario -->
+            <section id="zona-formulario">
+                <form id="form-contacto" class="form-reserva" novalidate>
+                    <label>
+                        Nombre y apellidos
+                        <input type="text" id="nombre">
+                    </label>
+
+                    <label>
+                        Correo electrónico
+                        <input type="email" id="email">
+                    </label>
+
+                    <label>
+                        Motivo de la consulta
+                        <select id="motivo">
+                            <option value="">Elija una opción</option>
+                            <option value="reserva">Información sobre una reserva</option>
+                            <option value="servicios">Spa, restaurante o experiencias</option>
+                            <option value="eventos">Eventos y celebraciones</option>
+                            <option value="otro">Otro motivo</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        Mensaje
+                        <textarea id="mensaje" rows="6"></textarea>
+                    </label>
+
+                    <p id="error-contacto" class="error" hidden></p>
+
+                    <button type="submit">Enviar mensaje</button>
+                </form>
+            </section>
+
+            <!-- Columna derecha: datos del hotel -->
+            <aside class="contacto-datos">
+                <h3>Velaure</h3>
+                <p>Camí de la Cala Narel, s/n<br>Narel de Mar, Costa Brava</p>
+
+                <h3>Recepción</h3>
+                <p>Abierta las 24 horas<br>Teléfono: 972 000 000<br>recepcion@velaure.example</p>
+
+                <h3>Horarios</h3>
+                <p>Entrada a partir de las 15:00<br>Salida hasta las 12:00</p>
+
+                <h3>Cómo llegar</h3>
+                <p>A unos 50 minutos en coche del aeropuerto de Girona. El último tramo es un camino entre pinos que baja hasta la cala.</p>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Pie de página (igual en todas las páginas) -->
+    <footer>
+        <div class="pie-columnas">
+            <div>
+                <p class="logo">VELAURE</p>
+                <p>Camí de la Cala Narel, s/n<br>Narel de Mar, Costa Brava</p>
+            </div>
+
+            <div>
+                <p class="pie-titulo">El hotel</p>
+                <ul>
+                    <li><a href="habitaciones.html">Habitaciones</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="mi-reserva.html">Mi reserva</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="pie-titulo">Recepción</p>
+                <p>Abierta las 24 horas<br>972 000 000<br>recepcion@velaure.example</p>
+            </div>
+        </div>
+
+        <p class="pie-nota">Marca ficticia creada con fines educativos · Proyecto de portfolio · Laura Buscató Lopez · <a href="https://github.com/laubuscato">GitHub</a></p>
+    </footer>
+
+    <!-- JavaScript de esta página -->
+    <script src="./js/contacto.js"></script>
+</body>
+</html>

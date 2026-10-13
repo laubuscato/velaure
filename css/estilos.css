@@ -1,0 +1,1331 @@
+/* Estilos de toda la web de Velaure
+
+   Colores:
+   #F7F3EC  arena claro (fondo)
+   #E6DCCB  arena
+   #1F2E3A  azul (texto y botones)
+   #A8845A  bronce (líneas y detalles)
+
+   El archivo va por orden: estilos generales, cabecera, portada,
+   habitaciones, reserva, confirmación, servicios, contacto,
+   mi reserva y, al final, la versión para móvil. */
+
+/* ---------- Estilos generales ---------- */
+
+body {
+    margin: 0;
+    background-color: #F7F3EC;
+    color: #1F2E3A;
+    font-family: "Jost", sans-serif;
+    font-weight: 300;
+}
+
+/* Lo que tenga el atributo hidden no se muestra nunca */
+[hidden] {
+    display: none !important;
+}
+
+h1, h2, h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+}
+
+a {
+    color: #1F2E3A;
+    text-decoration: none;
+}
+
+/* ---------- Cabecera ---------- */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    padding: 0 64px;
+}
+
+nav ul {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    position: relative;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+}
+
+/* Línea bronce que se dibuja al pasar el ratón */
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 1px;
+    background-color: #A8845A;
+    transition: width 0.4s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.logo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 26px;
+    letter-spacing: 0.4em;
+}
+
+.boton-reservar {
+    background-color: #1F2E3A;
+    color: #F7F3EC;
+    border: 1px solid #1F2E3A;
+    padding: 12px 24px;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.boton-reservar:hover {
+    background-color: #A8845A;
+    border-color: #A8845A;
+    color: #F7F3EC;
+}
+
+/* ---------- Portada ---------- */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    min-height: calc(100vh - 90px);
+    color: #F7F3EC;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 24px;
+}
+
+/* La foto va en una capa aparte para poder animarla */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(31, 46, 58, 0.45), rgba(31, 46, 58, 0.45)), url("../img/portada.webp");
+    background-size: cover;
+    background-position: center;
+    animation: zoom-lento 12s ease-out forwards;
+}
+
+/* El texto tiene que quedar por encima de la foto */
+.hero > * {
+    position: relative;
+    opacity: 0;
+    animation: subir 1.4s ease forwards;
+}
+
+.hero > *:nth-child(1) { animation-delay: 0.4s; }
+.hero > *:nth-child(2) { animation-delay: 0.8s; }
+.hero > *:nth-child(3) { animation-delay: 1.3s; }
+
+.hero .etiqueta {
+    color: #E6DCCB;
+}
+
+.hero h1 {
+    font-size: 96px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin: 16px 0 8px;
+}
+
+.subtitulo {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 32px;
+    margin: 0 0 24px;
+}
+
+/* ---------- Secciones ---------- */
+
+.etiqueta {
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: #8A6A42;
+}
+
+.seccion {
+    padding: 96px 64px;
+}
+
+.seccion h1,
+.seccion h2 {
+    font-size: 48px;
+    margin: 12px 0 40px;
+}
+
+.texto-villa {
+    max-width: 720px;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.fondo-arena {
+    background-color: #E6DCCB;
+}
+
+/* Secciones en azul profundo */
+.fondo-azul {
+    background-color: #1F2E3A;
+    color: #F7F3EC;
+}
+
+.fondo-azul .etiqueta {
+    color: #D9C3A0;
+}
+
+.fondo-azul a {
+    color: #F7F3EC;
+}
+
+/* Servicios: línea bronce sobre cada uno */
+.servicios article {
+    border-top: 1px solid #A8845A;
+    padding-top: 16px;
+}
+
+/* Cabecera azul de la página de habitaciones */
+.cabecera-pagina {
+    padding-bottom: 56px;
+}
+
+.cabecera-pagina .aviso {
+    margin-bottom: 0;
+    opacity: 0.85;
+}
+
+.enlace-linea {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    border-bottom: 1px solid #A8845A;
+    padding-bottom: 6px;
+    transition: color 0.4s ease;
+}
+
+.enlace-linea:hover {
+    color: #A8845A;
+}
+
+/* ---------- Tarjetas ---------- */
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.tarjetas img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    display: block;
+}
+
+/* Marco de la foto: recorta el zoom para que no se salga */
+.foto {
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.foto img {
+    transition: transform 1.2s ease;
+}
+
+article:hover .foto img {
+    transform: scale(1.06);
+}
+
+.servicios {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.tarjetas h3,
+.servicios h3 {
+    font-size: 30px;
+    margin: 8px 0;
+}
+
+/* ---------- Aparecer al hacer scroll ---------- */
+
+.aparecer {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.aparecer.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Las tarjetas aparecen una detrás de otra */
+.tarjetas .aparecer:nth-child(2),
+.servicios .aparecer:nth-child(2) { transition-delay: 0.15s; }
+
+.tarjetas .aparecer:nth-child(3),
+.servicios .aparecer:nth-child(3) { transition-delay: 0.3s; }
+
+.servicios .aparecer:nth-child(4) { transition-delay: 0.45s; }
+
+/* ---------- Animaciones ---------- */
+
+@keyframes zoom-lento {
+    from { transform: scale(1.12); }
+    to   { transform: scale(1); }
+}
+
+@keyframes subir {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Pie ---------- */
+
+footer {
+    background-color: #182530;
+    color: #F7F3EC;
+    padding: 64px 64px 32px;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+footer a {
+    color: #F7F3EC;
+}
+
+footer a:hover {
+    color: #D9C3A0;
+}
+
+.pie-columnas {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+}
+
+.pie-columnas ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.pie-columnas p {
+    margin: 0 0 8px;
+}
+
+.pie-titulo {
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: #D9C3A0;
+}
+
+/* Línea de abajo del pie, con la nota del proyecto */
+.pie-nota {
+    border-top: 1px solid rgba(247, 243, 236, 0.2);
+    margin: 48px 0 0;
+    padding-top: 24px;
+    font-size: 13px;
+}
+
+/* ---------- Buscador ---------- */
+
+.buscador {
+    color: #1F2E3A;
+    display: flex;
+    align-items: flex-end;
+    gap: 24px;
+    padding: 28px 32px;
+    background-color: #1F2E3A;
+}
+
+.buscador label {
+    color: #D9C3A0;
+}
+
+.buscador label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+}
+
+.buscador input,
+.buscador select {
+    font-family: "Jost", sans-serif;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #F7F3EC;
+    background-color: #F7F3EC;
+    color: #1F2E3A;
+    cursor: pointer;
+}
+
+.buscador button[type="submit"] {
+    background-color: #1F2E3A;
+    color: #F7F3EC;
+    border: none;
+    padding: 14px 28px;
+    font-family: "Jost", sans-serif;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+}
+
+.texto-noches {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 22px;
+    margin: 16px 0 0;
+}
+
+.aviso {
+    font-size: 13px;
+    margin: 12px 0 48px;
+}
+
+/* ---------- Reserva ---------- */
+
+.boton-ficha {
+    display: inline-block;
+    margin-top: 8px;
+    background-color: #1F2E3A;
+    color: #F7F3EC;
+    border: 1px solid #1F2E3A;
+    padding: 12px 24px;
+    font-family: "Jost", sans-serif;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.boton-ficha:hover {
+    background-color: #A8845A;
+    border-color: #A8845A;
+    color: #F7F3EC;
+}
+
+.total {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 28px;
+}
+
+.form-reserva {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+}
+
+.form-reserva label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+}
+
+.form-reserva input {
+    font-family: "Jost", sans-serif;
+    font-size: 16px;
+    padding: 12px;
+    border: 1px solid #D8CBB4;
+    background-color: #FFFDF9;
+    color: #1F2E3A;
+}
+
+.form-reserva .casilla {
+    flex-direction: row;
+    align-items: center;
+    text-transform: none;
+    font-size: 14px;
+    letter-spacing: 0;
+}
+
+.form-reserva input[type="checkbox"],
+.form-reserva input[type="radio"] {
+    accent-color: #1F2E3A;
+}
+
+.form-reserva button {
+    align-self: flex-start;
+    background-color: #1F2E3A;
+    color: #F7F3EC;
+    border: none;
+    padding: 16px 32px;
+    font-family: "Jost", sans-serif;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+}
+
+/* ---------- Página de reserva ---------- */
+
+.volver {
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    margin-bottom: 40px;
+    transition: color 0.3s ease;
+}
+
+.volver:hover {
+    color: #A8845A;
+}
+
+.reserva-layout {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.tarjeta-resumen {
+    position: sticky;
+    top: 32px;
+    background-color: #1F2E3A;
+}
+
+.tarjeta-resumen img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    display: block;
+}
+
+.resumen-cuerpo {
+    padding: 28px 32px 32px;
+    background-color: #1F2E3A;
+    color: #F7F3EC;
+}
+
+.resumen-cuerpo .etiqueta {
+    color: #D9C3A0;
+}
+
+.resumen-cuerpo h3 {
+    font-size: 36px;
+    margin: 4px 0 24px;
+}
+
+.resumen-datos {
+    margin: 0 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.resumen-datos div,
+.resumen-precio div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.resumen-datos dt {
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+}
+
+.resumen-datos dd {
+    margin: 0;
+}
+
+.resumen-precio {
+    border-top: 1px solid rgba(247, 243, 236, 0.2);
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.resumen-total {
+    border-top: 1px solid #A8845A;
+    padding-top: 16px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 28px;
+}
+
+.nota-resumen {
+    font-size: 13px;
+    margin: 16px 0 0;
+}
+
+.mensaje-reserva {
+    grid-column: 1 / -1;
+    max-width: 640px;
+}
+
+.codigo-reserva {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 40px;
+    letter-spacing: 0.1em;
+    margin: 0 0 24px;
+}
+
+/* ---------- Régimen y ofertas ---------- */
+
+.grupo-opciones {
+    border: none;
+    padding: 0;
+    margin: 12px 0 0;
+}
+
+.grupo-opciones legend,
+.titulo-grupo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 26px;
+    padding: 0;
+    margin: 12px 0;
+}
+
+.form-reserva .opcion {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 20px;
+    margin-bottom: 10px;
+    background-color: #FFFDF9;
+    border: 1px solid #E6DCCB;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.opcion:hover {
+    border-color: #A8845A;
+}
+
+.opcion:has(input:checked) {
+    border-color: #1F2E3A;
+}
+
+.opcion input {
+    margin-top: 5px;
+    accent-color: #1F2E3A;
+}
+
+.opcion-texto {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.opcion-nombre {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.opcion-detalle {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.opcion-precio {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 22px;
+    white-space: nowrap;
+}
+
+.opcion ul {
+    margin: 6px 0 0;
+    padding-left: 18px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.opcion.no-disponible {
+    opacity: 0.55;
+    cursor: default;
+}
+
+/* ---------- Garantía y cancelación ---------- */
+
+.fila-dos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.texto-garantia {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.aviso-demo {
+    margin: 0;
+    padding: 14px 18px;
+    font-size: 14px;
+    line-height: 1.6;
+    background-color: #E6DCCB;
+}
+
+.error {
+    margin: 0;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: #8A2C1F;
+    border: 1px solid #8A2C1F;
+    background-color: #FBF1EE;
+}
+
+.cancelacion {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 20px 0 0;
+    padding-top: 16px;
+    border-top: 1px solid rgba(247, 243, 236, 0.2);
+}
+
+/* ---------- Confirmación de la reserva ---------- */
+
+.confirmacion {
+    grid-column: 1 / -1;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    animation: subir 1s ease both;
+}
+
+.conf-cabecera {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.conf-icono {
+    width: 64px;
+    height: 64px;
+    border: 1px solid #A8845A;
+    border-radius: 50%;
+    color: #A8845A;
+    font-size: 28px;
+    line-height: 64px;
+    margin: 0 0 16px;
+}
+
+.conf-cabecera h2 {
+    font-size: 64px;
+    margin: 8px 0 0;
+}
+
+.conf-cabecera .subtitulo {
+    margin: 8px 0 0;
+    color: #8A6A42;
+}
+
+.conf-codigo {
+    margin: 48px auto;
+    max-width: 480px;
+    padding: 24px 32px;
+    border: 1px solid #A8845A;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.conf-codigo strong {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+    font-size: 40px;
+    letter-spacing: 0.12em;
+}
+
+.conf-email {
+    text-align: center;
+    font-size: 14px;
+    margin: -24px 0 48px;
+}
+
+.conf-email.con-error {
+    color: #8A2C1F;
+}
+
+.conf-cuerpo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #FFFDF9;
+    border: 1px solid #E6DCCB;
+}
+
+.conf-foto {
+    position: relative;
+    margin: 0;
+    min-height: 100%;
+}
+
+.conf-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.conf-foto figcaption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 80px 32px 28px;
+    background: linear-gradient(transparent, rgba(31, 46, 58, 0.75));
+    color: #F7F3EC;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 44px;
+}
+
+.conf-detalles {
+    padding: 40px;
+}
+
+.conf-fechas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding-bottom: 28px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid #E6DCCB;
+}
+
+.conf-fechas div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+}
+
+.conf-fechas strong {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.conf-precio {
+    border-top: 1px solid #E6DCCB;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.conf-precio div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.conf-total {
+    border-top: 1px solid #A8845A;
+    padding-top: 16px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px;
+}
+
+.conf-nota {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 16px 0 0;
+}
+
+.conf-llegada {
+    margin-top: 72px;
+}
+
+.conf-consejos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 16px;
+}
+
+.conf-consejos div {
+    border-top: 1px solid #A8845A;
+    padding-top: 16px;
+}
+
+.conf-consejos h3 {
+    font-size: 26px;
+    margin: 0 0 8px;
+}
+
+.conf-consejos p {
+    line-height: 1.7;
+    margin: 0;
+}
+
+.conf-acciones {
+    margin-top: 64px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/* ---------- Portada: secciones nuevas ---------- */
+
+/* Franja con cuatro datos del hotel */
+.cifras {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding: 56px 64px;
+    background-color: #1F2E3A;
+    color: #F7F3EC;
+    text-align: center;
+}
+
+.cifras p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.cifras .cifra {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 52px;
+    color: #D9C3A0;
+    margin-bottom: 4px;
+}
+
+/* Sección partida en texto y foto */
+.dos-columnas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+}
+
+.columna-foto img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+/* Lista con una línea fina entre elementos */
+.lista-lineas {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 32px;
+    max-width: 720px;
+}
+
+.lista-lineas li {
+    border-top: 1px solid #A8845A;
+    padding: 12px 0;
+}
+
+/* Botón claro, para ponerlo sobre el fondo azul */
+.boton-claro,
+.fondo-azul .boton-claro {
+    background-color: #F7F3EC;
+    border-color: #F7F3EC;
+    color: #1F2E3A;
+}
+
+.fondo-azul .boton-claro:hover {
+    color: #F7F3EC;
+}
+
+.opiniones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.opiniones blockquote {
+    margin: 0;
+    padding-top: 16px;
+    border-top: 1px solid #A8845A;
+}
+
+.opiniones p {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 24px;
+    line-height: 1.4;
+    margin: 0 0 16px;
+}
+
+/* Dentro de una cita, footer es la firma: se le quita el estilo del pie de página */
+.opiniones footer {
+    background-color: transparent;
+    color: #8A6A42;
+    padding: 0;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+}
+
+.nota-opiniones {
+    font-size: 13px;
+    margin: 32px 0 0;
+}
+
+/* ---------- Página de servicios ---------- */
+
+.lista-servicios {
+    padding-top: 0;
+}
+
+/* Cada servicio: foto a un lado y texto al otro */
+.servicio {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    margin-bottom: 96px;
+}
+
+/* En los servicios pares la foto va a la derecha */
+.servicio:nth-child(even) .servicio-foto {
+    order: 2;
+}
+
+/* El fondo arena se ve mientras no haya foto */
+.servicio-foto {
+    background-color: #E6DCCB;
+}
+
+.servicio-foto img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+.servicio-texto h3 {
+    font-size: 40px;
+    margin: 8px 0 16px;
+}
+
+.servicio-texto p {
+    line-height: 1.8;
+}
+
+.servicio-texto ul {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 0;
+}
+
+.servicio-texto li {
+    border-top: 1px solid #E6DCCB;
+    padding: 12px 0;
+    font-size: 14px;
+}
+
+.llamada {
+    text-align: center;
+}
+
+.enlace-servicios {
+    margin-top: 40px;
+}
+
+/* ---------- Página de contacto ---------- */
+
+.contacto-layout {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.form-reserva select,
+.form-reserva textarea {
+    font-family: "Jost", sans-serif;
+    font-size: 16px;
+    padding: 12px;
+    border: 1px solid #D8CBB4;
+    background-color: #FFFDF9;
+    color: #1F2E3A;
+}
+
+.contacto-datos {
+    background-color: #1F2E3A;
+    color: #F7F3EC;
+    padding: 40px;
+}
+
+.contacto-datos h3 {
+    font-size: 26px;
+    margin: 32px 0 8px;
+}
+
+.contacto-datos h3:first-child {
+    margin-top: 0;
+}
+
+.contacto-datos p {
+    line-height: 1.7;
+    margin: 0;
+}
+
+.contacto-gracias {
+    font-size: 48px;
+    margin: 8px 0 16px;
+}
+
+/* ---------- Página "Mi reserva" ---------- */
+
+.error-busqueda {
+    max-width: 568px;
+    margin-top: 20px;
+}
+
+.ficha-reserva {
+    max-width: 600px;
+    margin-top: 48px;
+    padding: 40px;
+    background-color: #FFFDF9;
+    border: 1px solid #E6DCCB;
+}
+
+.ficha-reserva .etiqueta {
+    margin: 0;
+}
+
+.ficha-reserva h3 {
+    font-size: 40px;
+    margin: 8px 0 24px;
+}
+
+.ficha-reserva .resumen-datos div {
+    border-bottom: 1px solid #E6DCCB;
+    padding-bottom: 12px;
+}
+
+.ficha-nota {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 16px;
+}
+
+/* ---------- Móvil y tablet ---------- */
+
+@media (max-width: 900px) {
+    /* La cabecera pasa a estar en vertical */
+    header {
+        height: auto;
+        flex-direction: column;
+        gap: 8px;
+        padding: 20px 24px 24px;
+    }
+
+    /* Si los enlaces del menú no caben en una línea, bajan a la siguiente */
+    nav ul {
+        gap: 0 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Enlaces del menú más altos para que sea fácil tocarlos con el dedo */
+    nav a {
+        display: inline-block;
+        padding: 12px 6px;
+    }
+
+    nav a::after {
+        bottom: 6px;
+    }
+
+    .hero {
+        min-height: 70vh;
+    }
+
+    .hero h1 {
+        font-size: 44px;
+        letter-spacing: 0.15em;
+    }
+
+    .subtitulo {
+        font-size: 24px;
+    }
+
+    .seccion {
+        padding: 56px 24px;
+    }
+
+    .seccion h1,
+    .seccion h2 {
+        font-size: 34px;
+    }
+
+    /* Todo lo que iba en columnas pasa a una sola */
+    .tarjetas,
+    .servicios,
+    .reserva-layout,
+    .conf-cuerpo,
+    .conf-consejos,
+    .servicio,
+    .contacto-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .servicio {
+        gap: 24px;
+        margin-bottom: 64px;
+    }
+
+    .cifras {
+        grid-template-columns: 1fr 1fr;
+        padding: 40px 24px;
+        gap: 32px 16px;
+    }
+
+    .cifras .cifra {
+        font-size: 40px;
+    }
+
+    .dos-columnas,
+    .opiniones {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    /* En móvil la foto va siempre encima del texto */
+    .servicio:nth-child(even) .servicio-foto {
+        order: 0;
+    }
+
+    .servicio-texto h3 {
+        font-size: 32px;
+    }
+
+    .contacto-layout {
+        gap: 40px;
+    }
+
+    .contacto-datos {
+        padding: 24px;
+    }
+
+    .reserva-layout {
+        gap: 40px;
+    }
+
+    /* Sin esto el formulario se sale de la pantalla por la derecha */
+    .reserva-layout section,
+    .contacto-layout section,
+    .grupo-opciones,
+    .form-reserva label,
+    .form-reserva input {
+        min-width: 0;
+    }
+
+    .buscador {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 24px;
+    }
+
+    /* En móvil el resumen va arriba del formulario y ya no se queda fijo al hacer scroll */
+    .tarjeta-resumen {
+        position: static;
+        order: -1;
+    }
+
+    .conf-cabecera h2 {
+        font-size: 40px;
+    }
+
+    .conf-codigo strong {
+        font-size: 30px;
+    }
+
+    .conf-detalles {
+        padding: 24px;
+    }
+
+    .conf-acciones {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    footer {
+        padding: 40px 24px 24px;
+    }
+
+    .pie-columnas {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .ficha-reserva {
+        padding: 24px;
+    }
+}
+
+/* Al imprimir, solo la confirmación */
+@media print {
+    header,
+    footer,
+    .volver,
+    .conf-acciones {
+        display: none;
+    }
+
+    body {
+        background-color: #FFFFFF;
+    }
+
+    .seccion {
+        padding: 0;
+    }
+
+    .confirmacion {
+        animation: none;
+    }
+}
+
+/* ---------- Accesibilidad: reducir movimiento ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .hero > *,
+    .aparecer {
+        opacity: 1;
+        transform: none;
+    }
+}

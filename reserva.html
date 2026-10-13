@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete su reserva en Velaure: régimen, datos del huésped y garantía.">
+    <title>Reserva · Velaure</title>
+    <link rel="icon" href="./img/favicon.svg" type="image/svg+xml">
+    <!-- Página privada: se pide a los buscadores que no la muestren -->
+    <meta name="robots" content="noindex">
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+    <!-- Cabecera y menú (igual en todas las páginas) -->
+    <header>
+        <a href="index.html" class="logo">VELAURE</a>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="habitaciones.html">Habitaciones</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="mi-reserva.html">Mi reserva</a></li>
+            </ul>
+        </nav>
+
+        <a href="habitaciones.html" class="boton-reservar">Reservar</a>
+    </header>
+
+    <main class="seccion">
+        <a href="habitaciones.html" class="volver">← Volver a las habitaciones</a>
+
+        <div id="contenido-reserva" class="reserva-layout">
+
+            <!-- Columna izquierda: datos del huésped -->
+            <section>
+                <p class="etiqueta">Su reserva</p>
+
+                <h1>Últimos detalles</h1>
+
+                <form id="form-reserva" class="form-reserva">
+                    <!-- Régimen: las opciones las crea js/reserva.js -->
+                    <fieldset class="grupo-opciones">
+                        <legend>Régimen</legend>
+                        <div id="opciones-regimen"></div>
+                    </fieldset>
+
+                    <!-- Oferta -->
+                    <fieldset class="grupo-opciones">
+                        <legend>Ofertas</legend>
+                        <div id="opcion-pack"></div>
+                    </fieldset>
+
+                    <!-- Datos del huésped -->
+                    <p class="titulo-grupo">Sus datos</p>
+
+                    <label>
+                        Nombre y apellidos
+                        <input type="text" id="nombre" autocomplete="name" required>
+                    </label>
+
+                    <label>
+                        Correo electrónico
+                        <input type="email" id="email" autocomplete="email" required>
+                    </label>
+
+                    <label>
+                        Teléfono
+                        <input type="tel" id="telefono" autocomplete="tel" required>
+                    </label>
+
+                    <!-- Tarjeta de garantía (demo, no se cobra nada) -->
+                    <p class="titulo-grupo">Garantía de la reserva</p>
+
+                    <p class="texto-garantia">No se realizará ningún cargo ahora. La tarjeta solo se usa como garantía y el pago se realiza en el hotel.</p>
+
+                    <p class="aviso-demo">Proyecto de demostración: no introduzca datos reales. Puede usar la tarjeta de prueba <strong>4242 4242 4242 4242</strong>, cualquier fecha futura y cualquier CVC.</p>
+
+                    <label>
+                        Titular de la tarjeta
+                        <input type="text" id="titular" autocomplete="off" required>
+                    </label>
+
+                    <label>
+                        Número de tarjeta
+                        <input type="text" id="numero-tarjeta" inputmode="numeric" maxlength="19" placeholder="0000 0000 0000 0000" autocomplete="off" required>
+                    </label>
+
+                    <div class="fila-dos">
+                        <label>
+                            Caducidad
+                            <input type="text" id="caducidad" inputmode="numeric" maxlength="5" placeholder="MM/AA" autocomplete="off" required>
+                        </label>
+
+                        <label>
+                            CVC
+                            <input type="text" id="cvc" inputmode="numeric" maxlength="3" placeholder="123" autocomplete="off" required>
+                        </label>
+                    </div>
+
+                    <p id="error-tarjeta" class="error" role="alert" hidden></p>
+
+                    <label class="casilla">
+                        <input type="checkbox" required>
+                        Confirmo que todos los huéspedes son mayores de 18 años.
+                    </label>
+
+                    <button type="submit">Confirmar reserva</button>
+                </form>
+            </section>
+
+            <!-- Columna derecha: resumen (lo rellena js/reserva.js) -->
+            <aside id="tarjeta-resumen" class="tarjeta-resumen"></aside>
+
+        </div>
+    </main>
+
+    <!-- Pie de página (igual en todas las páginas) -->
+    <footer>
+        <div class="pie-columnas">
+            <div>
+                <p class="logo">VELAURE</p>
+                <p>Camí de la Cala Narel, s/n<br>Narel de Mar, Costa Brava</p>
+            </div>
+
+            <div>
+                <p class="pie-titulo">El hotel</p>
+                <ul>
+                    <li><a href="habitaciones.html">Habitaciones</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="mi-reserva.html">Mi reserva</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="pie-titulo">Recepción</p>
+                <p>Abierta las 24 horas<br>972 000 000<br>recepcion@velaure.example</p>
+            </div>
+        </div>
+
+        <p class="pie-nota">Marca ficticia creada con fines educativos · Proyecto de portfolio · Laura Buscató Lopez · <a href="https://github.com/laubuscato">GitHub</a></p>
+    </footer>
+
+    <!-- JavaScript de esta página -->
+    <script src="./js/datos.js"></script>
+    <script src="./js/reserva.js"></script>
+</body>
+</html>

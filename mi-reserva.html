@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consulte o cancele su reserva en Velaure con el código de reserva.">
+    <title>Mi reserva · Velaure</title>
+    <link rel="icon" href="./img/favicon.svg" type="image/svg+xml">
+    <!-- Página privada: se pide a los buscadores que no la muestren -->
+    <meta name="robots" content="noindex">
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+    <!-- Cabecera y menú (igual en todas las páginas) -->
+    <header>
+        <a href="index.html" class="logo">VELAURE</a>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="habitaciones.html">Habitaciones</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="mi-reserva.html">Mi reserva</a></li>
+            </ul>
+        </nav>
+
+        <a href="habitaciones.html" class="boton-reservar">Reservar</a>
+    </header>
+
+    <main class="seccion">
+        <p class="etiqueta">Mi reserva</p>
+
+        <h1>Consultar o cancelar una reserva</h1>
+
+        <!-- Buscador por código de reserva -->
+        <form id="form-buscar" class="form-reserva">
+            <label>
+                Código de reserva
+                <input type="text" id="codigo" placeholder="VLR-2026-0001">
+            </label>
+
+            <button type="submit">Buscar reserva</button>
+        </form>
+
+        <p id="error-busqueda" class="error error-busqueda" hidden></p>
+
+        <!-- Aquí js/mi-reserva.js escribe los datos de la reserva -->
+        <div id="resultado"></div>
+    </main>
+
+    <!-- Pie de página (igual en todas las páginas) -->
+    <footer>
+        <div class="pie-columnas">
+            <div>
+                <p class="logo">VELAURE</p>
+                <p>Camí de la Cala Narel, s/n<br>Narel de Mar, Costa Brava</p>
+            </div>
+
+            <div>
+                <p class="pie-titulo">El hotel</p>
+                <ul>
+                    <li><a href="habitaciones.html">Habitaciones</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="mi-reserva.html">Mi reserva</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="pie-titulo">Recepción</p>
+                <p>Abierta las 24 horas<br>972 000 000<br>recepcion@velaure.example</p>
+            </div>
+        </div>
+
+        <p class="pie-nota">Marca ficticia creada con fines educativos · Proyecto de portfolio · Laura Buscató Lopez · <a href="https://github.com/laubuscato">GitHub</a></p>
+    </footer>
+
+    <!-- JavaScript de esta página -->
+    <script src="./js/datos.js"></script>
+    <script src="./js/mi-reserva.js"></script>
+</body>
+</html>
